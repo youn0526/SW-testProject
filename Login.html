@@ -1,25 +1,45 @@
 <DOCTYPE HTML5>
   <html>
     <head>
-      <link rel="stylesheet" type="text/css" href="css/style1.css" />
+      <link rel="stylesheet" type="text/css" href="css/login.css" />
+      <title>로그인</title>
     </head>
 
     <body width="100%" height="100%">
       <form action="index.html" method="post" class="loginForm">
-        <h2>Login</h2>
+        <h2>로그인</h2>
         <div class="idForm">
-          <input type="text" class="id" placeholder="ID" />
+          <input type="text" id="user_id" class="id" placeholder="아이디(1234)" required />
         </div>
         <div class="passForm">
-          <input type="password" class="pw" placeholder="PW" />
+          <input type="password" id="user_pw" class="pw" placeholder="비밀번호(1234)" required />
         </div>
-        <button type="button" class="btn" onclick="button()">LOG IN</button>
+        <button type="button" id="btn" class="btn" onclick="button()">로그인</button>
+
         <script>
-          let button = () => {
-            alert("로그인 버튼입니다");
+          document.getElementById("btn").onclick = function () {
+            var ID = document.getElementById("user_id").value;
+            var pass = document.getElementById("user_pw").value;
+            if (ID === "") {
+              alert("아이디를 입력해주세요");
+            } else if (pass === "") {
+              alert("비밀번호를 입력해주세요");
+            } else if (ID === "1234" && pass === "1234") {
+              alert("환영합니다");
+              window.location = "Login index.html";
+            } else {
+              alert("다시 입력해주세요");
+            }
           };
         </script>
-        <div class="bottomText">Don't you have ID? <a href="#">sign up</a></div>
+
+        <div class="bottomText">
+          회원이 아니신가요?
+          <a href="#" onclick="window.open('Register.html', '_blank', 'width=600 height=600')"
+            >회원가입</a
+          ><br /><br />
+          <a class="nav-link text-uppercase" href="index.html">돌아가기</a>
+        </div>
       </form>
     </body>
   </html></DOCTYPE

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Business Casual - Start Bootstrap Theme</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>문화의 수도 "안동"</title>
+    <link rel="icon" type="image/x-icon" href="assets/mask.png" />
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
@@ -23,9 +23,14 @@
   </head>
   <body>
     <header>
+      <style>
+        @import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
+      </style>
       <h1 class="site-heading text-center text-faded d-none d-lg-block">
-        <span class="site-heading-upper text-primary mb-3">A Free Bootstrap Business Theme</span>
-        <span class="site-heading-lower">Business Casual</span>
+        <span style="font-family: 'Cute Font', cursive" class="site-heading-upper text-primary mb-3"
+          >문화의 수도</span
+        >
+        <span style="font-family: 'Cute Font', cursive" class="site-heading-lower">안동</span>
       </h1>
     </header>
     <!-- Navigation-->
@@ -48,19 +53,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase" href="index.html">Home</a>
+              <a class="nav-link text-uppercase" href="Login index.html">Home</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase" href="Login.html">로그인</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase" href="Forum.html">게시물</a>
+              <a class="nav-link text-uppercase" href="Forum.html">게시판</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase" href="Introduce.html">소개</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase" href="Specialties Store.html"> 특산품 판매</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a
+                class="nav-link text-uppercase"
+                href="#"
+                onclick="window.open('https://www.tourandong.com/public', '_blank')"
+              >
+                안동관광</a
+              >
             </li>
           </ul>
         </div>
@@ -101,7 +112,19 @@
       </div>
     </section>
     <footer class="footer text-faded text-center py-5">
-      <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2021</p></div>
+      <div class="container">
+        <a
+          class="m-0 small"
+          href="#"
+          onclick="window.open('https://github.com/youn0526/testProject', '_blank')"
+          >SW Web Developer 3team</a
+        >
+      </div>
+      <a id="foot" class="nav-link text-uppercase" href="index.html">로그아웃</a>
+      <a id="foot" class="nav-link text-uppercase" href="javascript:surveyMake()">설문조사</a>
+      <a id="foot" class="nav-link text-uppercase">개인정보처리방침</a>
+      <a id="foot" class="nav-link text-uppercase">이용약관</a>
+      <a id="foot1" class="nav-link text-uppercase" href="#">UP</a>
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
