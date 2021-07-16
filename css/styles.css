@@ -11360,6 +11360,20 @@ p {
   z-index: -1;
 }
 
+.cta1 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  border-radius: 150px 5px 150px 5px;
+  background-color: #93ffdfcd;
+}
+
+.cta2 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  border-radius: 5px 150px 0px 150px;
+  background-color: #fdff93cd;
+}
+
 .footer {
   background-color: rgba(92, 255, 160, 0.8);
 }
@@ -11397,7 +11411,7 @@ p {
   .product-item .product-item-title {
     position: relative;
     z-index: 1;
-    margin-bottom: -3rem;
+    margin-bottom: -8rem;
   }
   .product-item .product-item-img {
     position: relative;
@@ -11407,7 +11421,7 @@ p {
   .product-item .product-item-description {
     position: relative;
     z-index: 1;
-    margin-top: -3rem;
+    margin-top: -20rem;
     max-width: 50vw;
   }
 }
