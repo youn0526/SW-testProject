@@ -211,7 +211,7 @@ strong {
 
 small,
 .small {
-  font-size: 0.875em;
+  font-size: 1.5rem;
 }
 
 mark,
@@ -239,6 +239,7 @@ sup {
 a {
   color: #ffffff;
   text-decoration: underline;
+  font-size: 1.2rem;
 }
 a:hover {
   color: #54a57b;
@@ -11267,6 +11268,7 @@ p {
   background-color: rgba(92, 255, 160, 0.8);
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  border-radius: 150px 150px 150px 150px;
 }
 #mainNav .navbar-brand {
   color: #ffffff;
@@ -11280,7 +11282,7 @@ p {
 }
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #53b56b;
@@ -11342,6 +11344,7 @@ p {
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: #93ffdfcd;
+  border-radius: 50px 50px 50px 50px;
 }
 .cta .cta-inner {
   position: relative;
@@ -11376,6 +11379,7 @@ p {
 
 .footer {
   background-color: rgba(92, 255, 160, 0.8);
+  border-radius: 150px 150px 0px 0px;
 }
 .nav-link text-uppercase:hover {
   color: #4ffa79;
