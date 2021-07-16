@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', event => {
 })
 function surveyMake() {
 	//surveymake.html의 창의 아이디를 survey로 하고 가로 420, 세로 200인 창을 만든다.
-	window.open("surveymake.html", "survey", "width=500,height=400,top=300,left=100");
+	window.open("surveymake.html", "survey", "width=480,height=400,top=300,left=100");
 }
 function addAnswer() {
 	var listDiv = document.getElementById("survey_answer_list");
