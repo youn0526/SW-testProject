@@ -25,7 +25,7 @@
   <body>
     <header>
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');        
         </style>
       <h1 class="site-heading text-center text-faded d-none d-lg-block">
         <span style="font-family: 'Cute Font', cursive;" class="site-heading-upper text-primary mb-3">문화의 수도</span>
@@ -50,7 +50,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase" href="Login.html">로그인 후 이용해주세요</a>
+              <a class="nav-link text-uppercase" href="Login index.html">Home</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="Forum.html">게시판</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="Introduce.html">소개</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="Specialties Store.html"> 특산품 판매</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="#" onclick="window.open('https://www.tourandong.com/public', '_blank')"> 안동관광</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -88,7 +101,6 @@
         </div>
       </div>
     </section>
-    
     <section class="page-section cta">
       <div class="container">
         <div class="row">
@@ -129,7 +141,9 @@
       </div>
     </section>
     <footer class="footer text-faded text-center py-5">
-      <div class="container"><p class="m-0 small"><a href="#" onclick="window.open('https://github.com/youn0526/testProject', '_blank')">SW Web Developer 3team</a></p></div>
+      <div class="container"><a class="m-0 small" href="#" onclick="window.open('https://github.com/youn0526/testProject', '_blank')">SW Web Developer 3team</a></div>
+      <a id="foot" class="nav-link text-uppercase" href="index.html">로그아웃</a>
+      <a id="foot" class="nav-link text-uppercase" href="javascript:surveyMake()">설문조사</a>
       <a id="foot" class="nav-link text-uppercase">개인정보처리방침</a>
       <a id="foot" class="nav-link text-uppercase">이용약관</a>
       <a id="foot1" class="nav-link text-uppercase" href="#">UP</a>
@@ -182,6 +196,6 @@
             setInterval(function () {
           $(".program_menu_li").first().appendTo(".program_menu_ul");
         }, 2000);
-      });
+        });
 </script>
 </html>

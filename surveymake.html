@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>설문조사</title>
+    <link rel="stylesheet" href="css/survey.css" />
+    <script type="text/javascript" src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="survey">
+      <h3 class="survey_title">참여하고 싶은 행사가 있나요?</h3>
+      <div class="survey_content">
+        <form action="">
+          <div class="survey_question">
+            <label>Q. 원하시는 행사를 자유롭게 적어주세요</label><br />
+          </div>
+          <div class="survey_answer">
+            <label>A. 답변 항목</label>
+            <button type="button" class="button" onclick="javascript:addAnswer();">추가</button>
+          </div>
+          <div id="survey_answer_list">
+            <div class="survey_answer_item">
+              <input type="text" name="answer" />
+            </div>
+          </div>
+          <div class="survey_make">
+            <button type="button" id="btn" class="button btn_primary">설문 제출</button>
+            <script>
+              document.getElementById("btn").onclick = function () {
+                alert("소중한 의견 감사합니다!");
+                window.close();
+              };
+            </script>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
