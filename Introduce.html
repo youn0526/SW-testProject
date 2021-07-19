@@ -8,6 +8,7 @@
     <title>문화의 수도 "안동"</title>
     <link rel="icon" type="image/x-icon" href="assets/mask.png" />
     <!-- Font Awesome icons (free version)-->
+    <script src="https://kit.fontawesome.com/45d09009d6.js" crossorigin="anonymous"></script>
     <script
       src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
       crossorigin="anonymous"
@@ -20,11 +21,84 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <script type="text/javascript">
+      // 스크롤 따라 다니는 메뉴
+
+      var stmnLEFT = 10; // 오른쪽 여백
+      var stmnGAP1 = 0; // 위쪽 여백
+      var stmnGAP2 = 300; // 스크롤시 브라우저 위쪽과 떨어지는 거리
+      var stmnBASE = 150; // 스크롤 시작위치
+      var stmnActivateSpeed = 10; //스크롤을 인식하는 딜레이 (숫자가 클수록 느리게 인식)
+      var stmnScrollSpeed = 10; //스크롤 속도 (클수록 느림)
+      var stmnTimer;
+
+      function RefreshStaticMenu() {
+        var stmnStartPoint, stmnEndPoint;
+
+        stmnStartPoint = parseInt(document.getElementById("STATICMENU").style.top, 10);
+        stmnEndPoint =
+          Math.max(document.documentElement.scrollTop, document.body.scrollTop) + stmnGAP2;
+
+        if (stmnEndPoint < stmnGAP1) stmnEndPoint = stmnGAP1;
+
+        if (stmnStartPoint != stmnEndPoint) {
+          stmnScrollAmount = Math.ceil(Math.abs(stmnEndPoint - stmnStartPoint) / 15);
+          document.getElementById("STATICMENU").style.top =
+            parseInt(document.getElementById("STATICMENU").style.top, 10) +
+            (stmnEndPoint < stmnStartPoint ? -stmnScrollAmount : stmnScrollAmount) +
+            "px";
+          stmnRefreshTimer = stmnScrollSpeed;
+        }
+
+        stmnTimer = setTimeout("RefreshStaticMenu();", stmnActivateSpeed);
+      }
+
+      function InitializeStaticMenu() {
+        document.getElementById("STATICMENU").style.right = stmnLEFT + "px"; //처음에 오른쪽에 위치. left로 바꿔도.
+        document.getElementById("STATICMENU").style.top = document.body.scrollTop + stmnBASE + "px";
+        RefreshStaticMenu();
+      }
+    </script>
   </head>
-  <body>
+  <body
+    id="[##_body_id_##]"
+    class="
+      [##_var_headerslogundisplay_##]
+      [##_var_headerbannerdisplay_##]
+      [##_var_listmore_##]
+      [##_var_listmoremobile_##]
+      <s_if_var_headerbannerimage>use-banner-wrp</s_if_var_headerbannerimage>
+      <s_if_var_headersloguntitle>use-slogan-wrp</s_if_var_headersloguntitle>
+      use-menu-[##_var_topnav_##]-wrp
+    "
+    onload="InitializeStaticMenu();"
+  >
     <header>
       <style>
         @import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
+        .menu-bar {
+          list-style-type: none;
+          margin-top: 2rem;
+          margin-bottom: -14rem;
+          width: 200px;
+          height: 270px;
+          border-radius: 0px 150px 150px 0px;
+          background-color: #fc9d9dd7;
+        }
+        .menu-bar > li a {
+          display: block;
+          color: #000;
+          padding: 8px 16px;
+          text-decoration: none;
+        }
+        #STATICMENU {
+          margin: 0pt;
+          padding: 0pt;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          z-index: 9999;
+        }
       </style>
       <h1 class="site-heading text-center text-faded d-none d-lg-block">
         <span style="font-family: 'Cute Font', cursive" class="site-heading-upper text-primary mb-3"
@@ -77,13 +151,29 @@
         </div>
       </div>
     </nav>
+
+    <div class="menu-bar">
+        <ul>
+          <li><br /><br><a class="a1" a href="#page-1">화회마을</a></li>
+          <br />
+          <li><a class="a1" a href="#page-2">도산서원</a></li>
+          <br />
+          <li><a class="a1" a href="#page-3">만휴정</a></li>
+          <br />
+          <li><a class="a1" a href="#page-4">월영교</a></li>
+        </ul>
+      </span>
+    </div>
+
     <section class="page-section">
       <div class="container">
         <div class="product-item">
           <div class="product-item-title d-flex">
             <div class="bg-faded p-5 d-flex ms-auto rounded">
               <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">#한국의 미와 전통이 살아 숨쉬는</span>
+                <span class="section-heading-upper" scroll-page id="page-1"
+                  >#한국의 미와 전통이 살아 숨쉬는</span
+                >
                 <span class="section-heading-lower">안동하회마을</span>
               </h2>
             </div>
@@ -117,10 +207,10 @@
       <div class="container">
         <div class="product-item">
           <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex me-auto rounded">
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">#한국 미의 재발견</span>
-                <span class="section-heading-lower">도산서원</span>
+            <div class="bg-faded2 p-5 d-flex me-auto rounded">
+              <h2 class="section-heading2 mb-0">
+                <span class="section-heading2-upper" scroll-page id="page-2">#한국 미의 재발견</span>
+                <span class="section-heading2-lower">도산서원</span>
               </h2>
             </div>
           </div>
@@ -132,7 +222,7 @@
             />
           </section>
           <div class="product-item-description d-flex ms-auto">
-            <div class="bg-faded p-5 rounded">
+            <div class="bg-faded2 p-5 rounded">
               <p class="mb-0">
                 퇴계 이황이 도산서당을 짓고 유생들을 교육하며 학문을 쌓던 곳으로 선생이 돌아가신 후
                 제자들과 유림에서 선생의 높은 덕을 추모하기 위해 건립한 서원이다. 도산서당과
@@ -157,7 +247,9 @@
           <div class="product-item-title d-flex">
             <div class="bg-faded p-5 d-flex ms-auto rounded">
               <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">#계곡 #드라마 촬영장</span>
+                <span class="section-heading-upper" scroll-page id="page-3"
+                  >#계곡 #드라마 촬영장</span
+                >
                 <span class="section-heading-lower">만휴정</span>
               </h2>
             </div>
@@ -197,10 +289,10 @@
       <div class="container">
         <div class="product-item">
           <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex me-auto rounded">
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">#월영 야행 축제</span>
-                <span class="section-heading-lower">월영교</span>
+            <div class="bg-faded2 p-5 d-flex me-auto rounded">
+              <h2 class="section-heading2 mb-0">
+                <span class="section-heading2-upper" scroll-page id="page-4">#월영 야행 축제</span>
+                <span class="section-heading2-lower">월영교</span>
               </h2>
             </div>
           </div>
@@ -212,7 +304,7 @@
             />
           </section>
           <div class="product-item-description d-flex ms-auto">
-            <div class="bg-faded p-5 rounded">
+            <div class="bg-faded2 p-5 rounded">
               <p class="mb-0">
                 월영교란 명칭은 댐 건설로 수몰된 월영대가 이곳으로 온 인연과 월곡면, 음달곡이라는
                 지명을 참고했다. 월영교는 자연풍광을 드러내는 조형물이지만, 그보다 먼저 간 남편을
@@ -233,7 +325,7 @@
       </div>
     </section>
     <footer class="footer text-faded text-center py-5">
-      <div class="container">
+      <div scroll-page id="page-5" class="container">
         <a
           class="m-0 small"
           href="#"
@@ -243,8 +335,8 @@
       </div>
       <a id="foot" class="nav-link text-uppercase" href="index.html">로그아웃</a>
       <a id="foot" class="nav-link text-uppercase" href="javascript:surveyMake()">설문조사</a>
-      <a id="foot" class="nav-link text-uppercase">개인정보처리방침</a>
-      <a id="foot" class="nav-link text-uppercase">이용약관</a>
+      <a id="foot" class="nav-link text-uppercase" href="404.html" target="_blank">개인정보처리방침</a>
+      <a id="foot" class="nav-link text-uppercase" href="404.html" target="_blank">이용약관</a>
       <a id="foot1" class="nav-link text-uppercase" href="#">UP</a>
     </footer>
     <!-- Bootstrap core JS-->
@@ -252,4 +344,30 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
   </body>
+  <div id="STATICMENU">
+    <!-- 스크롤 따라다니는 메뉴 -->
+    <i
+      class="fas fa-arrow-circle-up fa-2x"
+      onclick="location.href='#'"
+      style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+    ></i
+    ><br /><br />
+    <i
+      class="fas fa-arrow-circle-down fa-2x"
+      onclick="location.href='#page-5'"
+      style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+    ></i
+    ><br /><br />
+    <i
+      class="fas fa-arrow-circle-left fa-2x"
+      onclick="history.back();"
+      style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+    ></i
+    ><br /><br />
+    <i
+      class="fas fa-home fa-2x"
+      onclick="location.href='Login index.html'"
+      style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+    ></i>
+  </div>
 </html>

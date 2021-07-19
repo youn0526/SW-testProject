@@ -6,7 +6,9 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>문화의 수도 "안동"</title>
+    <link href="bg.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="assets/mask.png" />
+    <script src="https://kit.fontawesome.com/45d09009d6.js" crossorigin="anonymous"></script>
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
@@ -20,12 +22,69 @@
     />
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
+    <script type="text/javascript">
+
+      var stmnLEFT = 10;
+      var stmnGAP1 = 0; 
+      var stmnGAP2 = 300; 
+      var stmnBASE = 150; 
+      var stmnActivateSpeed = 10; 
+      var stmnScrollSpeed = 10; 
+      var stmnTimer;
+
+      function RefreshStaticMenu() {
+        var stmnStartPoint, stmnEndPoint;
+
+        stmnStartPoint = parseInt(document.getElementById("STATICMENU").style.top, 10);
+        stmnEndPoint =
+          Math.max(document.documentElement.scrollTop, document.body.scrollTop) + stmnGAP2;
+
+        if (stmnEndPoint < stmnGAP1) stmnEndPoint = stmnGAP1;
+
+        if (stmnStartPoint != stmnEndPoint) {
+          stmnScrollAmount = Math.ceil(Math.abs(stmnEndPoint - stmnStartPoint) / 15);
+          document.getElementById("STATICMENU").style.top =
+            parseInt(document.getElementById("STATICMENU").style.top, 10) +
+            (stmnEndPoint < stmnStartPoint ? -stmnScrollAmount : stmnScrollAmount) +
+            "px";
+          stmnRefreshTimer = stmnScrollSpeed;
+        }
+
+        stmnTimer = setTimeout("RefreshStaticMenu();", stmnActivateSpeed);
+      }
+
+      function InitializeStaticMenu() {
+        document.getElementById("STATICMENU").style.right = stmnLEFT + "px"; //처음에 오른쪽에 위치. left로 바꿔도.
+        document.getElementById("STATICMENU").style.top = document.body.scrollTop + stmnBASE + "px";
+        RefreshStaticMenu();
+      }
+    </script>
     <link href="css/styles.css" rel="stylesheet" />
   </head>
-  <body>
+  <body
+  id="[##_body_id_##]"
+  class="
+    [##_var_headerslogundisplay_##]
+    [##_var_headerbannerdisplay_##]
+    [##_var_listmore_##]
+    [##_var_listmoremobile_##]
+    <s_if_var_headerbannerimage>use-banner-wrp</s_if_var_headerbannerimage>
+    <s_if_var_headersloguntitle>use-slogan-wrp</s_if_var_headersloguntitle>
+    use-menu-[##_var_topnav_##]-wrp
+  "
+  onload="InitializeStaticMenu();"
+>
     <header>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+        #STATICMENU {
+          margin: 0pt;
+          padding: 0pt;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          z-index: 9999;
+        }
         </style>
       <h1 class="site-heading text-center text-faded d-none d-lg-block">
         <span style="font-family: 'Cute Font', cursive;" class="site-heading-upper text-primary mb-3">문화의 수도</span>
@@ -129,7 +188,7 @@
       </div>
     </section>
     <footer class="footer text-faded text-center py-5">
-      <div class="container"><p class="m-0 small"><a href="#" onclick="window.open('https://github.com/youn0526/testProject', '_blank')">SW Web Developer 3team</a></p></div>
+      <div scroll-page id="page-5" class="container"><a class="m-0 small" href="#" onclick="window.open('https://github.com/youn0526/testProject', '_blank')">SW Web Developer 3team</a></div>
       <a id="foot" class="nav-link text-uppercase">개인정보처리방침</a>
       <a id="foot" class="nav-link text-uppercase">이용약관</a>
       <a id="foot1" class="nav-link text-uppercase" href="#">UP</a>
@@ -138,6 +197,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    
   </body> 
   </script>
   <script
@@ -184,4 +244,29 @@
         }, 2000);
       });
 </script>
+<div id="STATICMENU">
+  <i
+    class="fas fa-arrow-circle-up fa-2x"
+    onclick="location.href='#'"
+    style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+  ></i
+  ><br /><br />
+  <i
+    class="fas fa-arrow-circle-down fa-2x"
+    onclick="location.href='#page-5'"
+    style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+  ></i
+  ><br /><br />
+  <i
+    class="fas fa-arrow-circle-left fa-2x"
+    onclick="history.back();"
+    style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+  ></i
+  ><br /><br />
+  <i
+    class="fas fa-home fa-2x"
+    onclick="location.href='index.html'"
+    style="cursor: pointer; color: #284d41ce; opacity: 0.8"
+  ></i>
+</div>
 </html>
