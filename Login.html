@@ -1,37 +1,47 @@
-<DOCTYPE HTML5>
+<!DOCTYPE HTML>
   <html>
     <head>
+      <meta charset="UTF-8" />
       <link rel="stylesheet" type="text/css" href="css/login.css" />
+      <link rel="icon" type="image/x-icon" href="img/account.png" />
+
       <title>로그인</title>
     </head>
 
     <body width="100%" height="100%">
-      <form action="index.html" method="post" class="loginForm">
+      <style>
+        .login-btn {
+          position: relative;
+          left: 40%;
+          transform: translateX(-50%);
+          margin-bottom: 40px;
+          width: 80%;
+          height: 40px;
+          background: linear-gradient(125deg, #fbadf7, #ea50f5, #fbadf7);
+          background-position: left;
+          background-size: 200%;
+          color: white;
+          font-weight: bold;
+          border: none;
+          cursor: pointer;
+          transition: 0.4s;
+          display: inline;
+        }
+
+        .login-btn:hover {
+          background-position: right;
+        }
+      </style>
+
+      <form action="join.php" method="get" class="loginForm">
         <h2>로그인</h2>
         <div class="idForm">
-          <input type="text" id="user_id" class="id" placeholder="아이디(1234)" required />
+          <input type="text" name="id" class="id" placeholder="아이디(1234)" />
         </div>
         <div class="passForm">
-          <input type="password" id="user_pw" class="pw" placeholder="비밀번호(1234)" required />
+          <input type="password" name="pw" class="pw" placeholder="비밀번호(1234)" />
         </div>
-        <button type="button" id="btn" class="btn" onclick="button()">로그인</button>
-
-        <script>
-          document.getElementById("btn").onclick = function () {
-            var ID = document.getElementById("user_id").value;
-            var pass = document.getElementById("user_pw").value;
-            if (ID === "") {
-              alert("아이디를 입력해주세요");
-            } else if (pass === "") {
-              alert("비밀번호를 입력해주세요");
-            } else if (ID === "1234" && pass === "1234") {
-              alert("환영합니다");
-              window.location = "Login index.html";
-            } else {
-              alert("다시 입력해주세요");
-            }
-          };
-        </script>
+        <button id="submit" class="login-btn" type="submit">로그인</button>
 
         <div class="bottomText">
           회원이 아니신가요?
